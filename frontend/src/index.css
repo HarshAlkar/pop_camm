@@ -1,0 +1,341 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+/* Container for the whole chat app */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo and title */
+.logo_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+p {
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  margin-top: 10px;
+}
+
+/* Register screen */
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.register input {
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  width: 250px;
+  border-radius: 5px;
+  border: 1px solid #dcdcdc;
+}
+
+.register button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.register button:hover {
+  background-color: #0056b3;
+}
+
+/* Chat Box */
+.chat-box {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  max-width: 1200px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Member List */
+.member-list {
+  width: 20%;
+  padding: 15px;
+  background-color: #2a2f35;
+  color: white;
+  border-radius: 8px 0 0 8px;
+}
+
+.member-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.member-list .member {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.member-list .member:hover {
+  background-color: #0056b3;
+}
+
+.member-list .member.active {
+  background-color: #01060b;
+  font-weight: bold;
+}
+
+/* Chat content */
+.chat-content {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 0 8px 8px 0;
+}
+
+.chat-messages {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  height: 400px;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  align-items: center;
+}
+
+.message.self {
+  background-color: #dcf8c6;
+  color: solid rgb(146, 30, 30);
+  justify-content: flex-end;
+}
+
+.message .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ddd;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.message .avatar.self {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.message-data {
+  display: flex; /* Use flex to align text and video in the same row */
+  flex-direction: row;
+  align-items: center; /* Align items in the center */
+  max-width: 70%;
+}
+
+.message-data p {
+  margin: 2px;
+  padding: 4px;
+  word-wrap: break-word;
+  font-size: 20px;
+
+}
+
+.message-data video {
+  margin-left: 10px; /* Add some space between text and video */
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Align video circle with the text input and send button */
+.send-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+}
+.send-message input {
+  padding: 10px;
+  width: 60%;
+  border-radius: 5px;
+  border: 1px solid #dcdcdc;
+}
+
+.send-message .send-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.send-message .send-button:hover {
+  background-color: #218838;
+}
+
+.send-message .video-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #140203;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10px;
+
+  transition: background-color 0.3s ease;
+}
+
+.send-message .video-circle:hover {
+  background-color: #200407;
+}
+
+.video-preview {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Modal for video */
+.video-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.video-modal.open {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 80%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-close:focus {
+  outline: none;
+}
+
+/* Adjust for small screens */
+@media (max-width: 768px) {
+  .chat-box {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .member-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #b4bdc7;
+  }
+
+  .member-list ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    flex-direction: row;
+  }
+
+  .member-list .member {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .chat-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .send-message input {
+    width: 100%;
+  }
+
+  .send-message .send-button {
+    margin-left: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
